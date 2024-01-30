@@ -1,0 +1,21 @@
+<form name="myForm" novalidate="">
+    <div>
+        <form name="thisForm" novalidate ng-submit="thisForm.$dirty && thisForm.$valid && submit()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" ng-model="user" required><br>
+            <div ng-show="thisForm.username.$touched && thisForm.username.$invalid">
+                <span ng-show="thisForm.username.$error.required">This field is required</span>
+            </div>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" ng-model="passwd" required ng-pattern="/[a-zA-Z]{4,16}/"><br>
+            <div ng-show="thisForm.password.$touched && thisForm.password.$invalid">
+                <span ng-show="thisForm.password.$error.required">This field is required</span>
+                <span ng-show="thisForm.password.$error.pattern">4 to 16 letters</span>
+            </div>
+
+            <input type="submit">
+        </form>
+
+    </div>
+</form>

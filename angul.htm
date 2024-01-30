@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <title>Form</title>
+</head>
+
+<body ng-app="myApp" ng-init="even =[2,4,6,8]">
+
+    <form name="myForm" novalidate="">
+        <h1>AngularJS Validation</h1>
+        <label>Full Name</label>
+        <input type="text" name="name" ng-model="name" pattern="[a-zA-Z]{1,}" required=""><br>
+        <span ng-show="myForm.$submitted || myForm.name.$dirty">
+            <span class="error" ng-show="myForm.name.$error.required"><i class="fa fa-exclamation-circle"></i> Name
+                Required</span>
+            <span class="error" ng-show="myForm.name.$error.pattern"><i class="fa fa-exclamation-circle"></i> Name
+                cannot be Number</span>
+        </span><br><br>
+
+        <label>Date of Birth</label>
+        <input type="date" name="date" ng-model="date" required=""><br>
+        <span ng-show="myForm.$submitted || myForm.date.$dirty">
+            <span class="error" ng-show="myForm.date.$error.required"><i class="fa fa-exclamation-circle"></i> Date of
+                Birth Required</span>
+        </span><br><br>
+
+        <label>Address</label>
+        <textarea name="address" ng-model="address" required=""></textarea><br>
+        <span ng-show="myForm.$submitted || myForm.address.$dirty">
+            <span class="error" ng-show="myForm.address.$error.required"><i class="fa fa-exclamation-circle"></i>
+                Address Required</span>
+        </span><br><br>
+
+        <label>Phone Number</label>
+        <input type="number" name="phone" ng-model="phone" ng-minlength="10" ng-maxlength="10" required=""><br>
+        <span ng-show="myForm.$submitted || myForm.phone.$dirty">
+            <span class="error" ng-show="myForm.phone.$error.required"><i class="fa fa-exclamation-circle"></i> Phone
+                Number Required</span>
+            <span class="error"
+                ng-show="((myForm.phone.$error.minlength || myForm.phone.$error.maxlength) &amp;&amp; myForm.phone.$dirty)"><i
+                    class="fa fa-exclamation-circle"></i> Phone Number Should be 10 digits</span>
+        </span><br><br>
+
+        <label>Course</label>
+        <select name="course" ng-model="course" required="">
+            <option>Angular</option>
+            <option>Vue</option>
+            <option>React</option>
+
+        </select><br>
+        <span ng-show="myForm.$submitted || myForm.course.$dirty">
+            <span class="error" ng-show="myForm.course.$error.required"><i class="fa fa-exclamation-circle"></i> Course
+                Required</span>
+        </span><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <!-- <p> The area is {{a*b}}</p>
+    <p> The area is <span ng-bind="a*b"></span></p>
+    <p>Full name is {{fname + ""+ lname}}</p>
+    <p>{{ even[2] }}</p>
+    <p>Full name is <span ng-bind="'Chandler Thapa'"></span></p> -->
+    <!-- <p " ng-repeat=" item in even">
+        {{item - 1}}
+    </p> -->
+
+    <!-- <p ng-hide="isSpy>  
+            Age is : {{age}}
+            {{weight}}
+    
+            FIRST NAME IS : {{fname}}
+            last NAME IS : {{lname}}
+    
+    
+            {{fullname()}}
+        </p>{{name}}
+       
+        <p ng-show=" isSpy">SPY IS HERE</p>
+
+        </p> -->
+    <!-- <div ng-controller="MyController">
+
+        <h2>Reviews</h2>
+        <div ng-repeat="review in reviews">
+            <div style="background-color: antiquewhite;"></div>
+            <p>{{review.comment}}</p>
+
+            <p><b>{{review.comment}}</b></p>
+
+        </div>
+
+        <form name="reviewForm" ng-submit="addReview()" novalidate>
+            <p>{{form.comment}}</p>
+            <p>{{form.author}}</p>
+
+            <label>Comment</label> <br />
+            <textarea ng-model="form.comment"></textarea><br />
+
+            <label>Author</label><br />
+            <input ng-model="form.by" type=text>
+
+            <input type="submit" value="Add Review"></input>
+            <p>Form valid? {{reviewForm.$valid}}</p>
+        </form>
+
+
+
+    </div> -->
+    <!-- <button ng-click="count = count + 1;toggleshow()" ng-init="count=0">INC</button>
+        <button ng-click="count= count -1">DEC</button>
+        <p ng-hide="!show">Count is {{ count }}</p> -->
+    <!-- <ul ng-repeat="employee in employees | orderBy:'-age'">
+
+            <p>{{employee.fname | limitTo:2}}</p>
+            <p>{{employee.lname | lowercase}}</p>
+            <p>{{employee.age | currency}}</p>
+
+
+        </ul> -->
+
+</body>
+
+</html>
